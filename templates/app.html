@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='app.css') }}">
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+    <title>Vertical Split in Flask</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        .left-side {
+            flex: 15%;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .right-side {
+            flex: 85%;
+            background-color: #e0e0e0;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side" id="left-side">
+            <h2>Choose Your Input</h2>
+            <select id="input-choice" onchange="handleInputChange()">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+            </select>
+
+            <div class="spacer"></div>
+            <h2>Specify summerization type</h2>
+            <select id="summarization-type">
+                <option value="abs">Abstractive</option>
+                <option value="ext">Extractive</option>
+                
+            </select>
+
+            <div class="spacer"></div>
+
+
+            <h2>Select Summarization Algorithm</h2>
+                    <select id="algorithm-choice">
+                        <option value="nltk">nltk</option>
+                        <option value="algo2">Algorithm 2</option>
+                        <option value="algo3">Algorithm 3</option>
+                    </select>
+
+                    <div class="spacer"></div>
+    
+                    <h2>Length of Summary</h2>
+                    <input type="range" id="summary-length" name="summary-length" min="0" max="100" step="1">
+                    
+        
+                    <div class="spacer"></div>
+        
+                    <h2>Choose Language</h2>
+                    <select id="language-choice">
+                        <option value="english">English</option>
+                        <option value="spanish">Spanish</option>
+                        <option value="french">French</option>
+                    </select>
+        
+                    <div class="spacer"></div>
+        
+                    <button id="summarize-button" class="summarize-btn" onclick="summarize()">Summarize</button>        
+        </div>
+
+       
+        
+        <div class="right-side" id="right-side">
+            <!-- Content will be dynamically added here -->
+        </div>
+    </div>
+
+    
+</body>
+</html>
+
